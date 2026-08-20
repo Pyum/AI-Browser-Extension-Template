@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 350px;
+        font-family: sans-serif;
+        background: #f9f9f9;
+      }
+
+      /* ── Tab Bar ── */
+      .tabs {
+        display: flex;
+        background: #4f46e5;
+      }
+
+      .tab {
+        flex: 1;
+        padding: 10px;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        font-size: 13px;
+        opacity: 0.6;
+        border: none;
+        background: none;
+      }
+
+      .tab.active {
+        opacity: 1;
+        border-bottom: 3px solid white;
+        font-weight: bold;
+      }
+
+      /* ── Pages ── */
+      .page {
+        display: none;
+        padding: 16px;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      /* ── Blank Content Area ── */
+      .content-area {
+        width: 100%;
+        height: 250px;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+      }
+
+      /* ── API Key Tab ── */
+      label {
+        display: block;
+        font-size: 13px;
+        color: #555;
+        margin-bottom: 6px;
+      }
+
+      input[type="password"] {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 13px;
+        margin-bottom: 10px;
+        background: white;
+      }
+
+      button {
+        width: 100%;
+        padding: 9px;
+        background: #4f46e5;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13px;
+      }
+
+      button:hover {
+        background: #4338ca;
+      }
+
+      .status {
+        margin-top: 8px;
+        font-size: 12px;
+        color: #666;
+      }
+
+      .success { color: #16a34a; }
+      .error-text { color: #dc2626; }
+    </style>
+  </head>
+  <body>
+
+    <!-- Tab Bar -->
+    <div class="tabs">
+      <button class="tab active" data-tab="tab1">Tab 1</button>
+      <button class="tab" data-tab="tab2">Tab 2</button>
+      <button class="tab" data-tab="tab3">Tab 3</button>
+      <button class="tab" data-tab="apikey">API Key</button>
+    </div>
+
+    <!-- Tab 1 -->
+    <div class="page active" id="page-tab1">
+      <div class="content-area"></div>
+    </div>
+
+    <!-- Tab 2 -->
+    <div class="page" id="page-tab2">
+      <div class="content-area"></div>
+    </div>
+
+    <!-- Tab 3 -->
+    <div class="page" id="page-tab3">
+      <div class="content-area"></div>
+    </div>
+
+    <!-- API Key -->
+    <div class="page" id="page-apikey">
+      <label>Groq API Key</label>
+      <input type="password" id="apiKey" placeholder="Paste your Groq API key..." />
+      <button id="saveKey">Save Key</button>
+      <p class="status" id="key-status"></p>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
